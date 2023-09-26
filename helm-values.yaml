@@ -1,0 +1,23 @@
+image:
+  raemis:
+    pullPolicy: "Always"
+    repo: "mmdh/raemis-default-pcn-virtual"
+    tag: "5.2.5.1-1"
+
+networks:
+  ran:
+    type: "macvlan"
+    macvlan:
+      master: "ens160"
+    ipAddress: "10.2.0.163/25"
+
+  wan:
+    type: "macvlan"
+     macvlan:
+    master: "ens192"
+    ipAddress: "10.2.2.40/25"
+
+service:
+  ports:
+    raemisGui:
+      nodePort: 31443
